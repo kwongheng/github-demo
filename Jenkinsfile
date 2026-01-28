@@ -2,6 +2,14 @@ pipeline {
     agent any
 
     stages {
+        stage('Clean Workspace') {
+            steps {
+                // This deletes everything in the workspace folder 
+                // to ensure a fresh Git clone
+                cleanWs() 
+            }
+        }
+        
         stage("Check Docker version") {
             steps {
                 sh "docker --version"
