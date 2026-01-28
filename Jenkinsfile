@@ -29,7 +29,7 @@ pipeline {
         stage('Push Docker Image') { 
             steps { 
                 withCredentials([usernamePassword(
-                    credentialsId: 'docker-hub credentials', 
+                    credentialsId: 'docker-hub-credentials', 
                     passwordVariable: 'DOCKER_PASSWORD', 
                     usernameVariable: 'DOCKER_USERNAME'
                 )]) { 
