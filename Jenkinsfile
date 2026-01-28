@@ -1,12 +1,11 @@
 pipeline {
     agent any
 
-    stages {
-        stage('Clean Workspace') {
+    stages { 
+        stage('Fix Git Permissions') {
             steps {
-                // This deletes everything in the workspace folder 
-                // to ensure a fresh Git clone
-                cleanWs() 
+                // Tells the OS that the workspace is a safe place to run git
+                sh "git config --global --add safe.directory ${WORKSPACE}"
             }
         }
         
